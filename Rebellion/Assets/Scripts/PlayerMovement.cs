@@ -33,11 +33,6 @@ public class PlayerMovement : MonoBehaviour
         {
             crouch = false;
         }
-
-        if(Input.GetMouseButtonDown(0))
-        {
-            animator.SetBool("IsAttacking", true);
-        }
     }
 
     public void OnLanding()
@@ -53,7 +48,6 @@ public class PlayerMovement : MonoBehaviour
     private void FixedUpdate()
     {
         // Move our Character
-        // Horizontal Control
         controller.Move(horizontalMove * Time.fixedDeltaTime, crouch, jump);
         jump = false;
     }
