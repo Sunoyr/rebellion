@@ -34,8 +34,10 @@ public class EnemyScript : MonoBehaviour
         animator.SetBool("IsDead", true);
 
         // disable the enemy
-        GetComponent<Rigidbody2D>().bodyType = RigidbodyType2D.Kinematic;
+        Rigidbody2D rb = GetComponent<Rigidbody2D>();
+        rb.constraints = RigidbodyConstraints2D.FreezeAll;
         GetComponent<Collider2D>().enabled = false;
+
         this.enabled = false;
     }
 }
